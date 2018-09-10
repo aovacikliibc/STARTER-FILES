@@ -4,6 +4,12 @@ const slug = require('slugs');
 
 const storeSchema = new mongoose.Schema({
     name: {
+    },
+    location:{
+        type: {
+            type: String,
+            default: 'Point'
+        },
         type: String,
         trim: true,
         required: 'Please enter a store name!'
@@ -16,13 +22,7 @@ const storeSchema = new mongoose.Schema({
     tags: [String],
     created:{
         type: Date,
-        default: Date.now
-    },
-    location:{
-        type: {
-            type: String,
-            default: 'Point'
-        },
+        default: Date.now,
         coordiantes: [
             {
                 type: Number,
@@ -33,7 +33,8 @@ const storeSchema = new mongoose.Schema({
             type: String,
             required: 'You must supply an address!'
         }
-    }
+    },
+    photo: String
 
 });
 
